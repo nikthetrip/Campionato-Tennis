@@ -8,7 +8,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Rimuove i margini predefiniti di Streamlit
 st.markdown(
     """
     <style>
@@ -20,13 +19,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Legge il file HTML esterno in modo sicuro al 100%
-try:
-  with open("index.html", "r", encoding="utf-8") as f:
-    html_content = f.read()
-  components.html(html_content, height=850, scrolling=True)
-except FileNotFoundError:
-  st.error(
-      "⚠️ Attenzione: il file 'index.html' non è stato trovato nel repository"
-      " GitHub! Crealo o caricalo per visualizzare l'app."
-  )
+with open("index.html", "r", encoding="utf-8") as f:
+  html_content = f.read()
+
+components.html(html_content, height=850, scrolling=True)
