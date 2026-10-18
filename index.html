@@ -58,19 +58,25 @@
         </header>
 
         <!-- NAVIGATION TABS -->
-        <div class="flex justify-center gap-2 mb-8 bg-tennis-dark/80 p-1.5 rounded-2xl border border-gray-800 max-w-xl mx-auto backdrop-blur-md">
-            <button onclick="switchTab('campionato')" id="tab-campionato" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg">
-                <i class="fa-solid fa-list-ol"></i> Campionato
+        <div class="flex flex-wrap justify-center gap-2 mb-8 bg-tennis-dark/80 p-1.5 rounded-2xl border border-gray-800 max-w-3xl mx-auto backdrop-blur-md">
+            <button onclick="switchTab('campionato')" id="tab-campionato" class="flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg">
+                <i class="fa-solid fa-list-ol"></i> Classifica
             </button>
-            <button onclick="switchTab('torneo')" id="tab-torneo" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-trophy"></i> Torneo Mensile
+            <button onclick="switchTab('calendario')" id="tab-calendario" class="flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-calendar-days"></i> Calendario
             </button>
-            <button onclick="switchTab('inserisci')" id="tab-inserisci" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-circle-plus"></i> Nuova Partita
+            <button onclick="switchTab('torneo')" id="tab-torneo" class="flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-trophy"></i> Torneo
+            </button>
+            <button onclick="switchTab('inserisci')" id="tab-inserisci" class="flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-circle-plus"></i> Partita
+            </button>
+            <button onclick="switchTab('impostazioni')" id="tab-impostazioni" class="flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-gear"></i> Giocatori
             </button>
         </div>
 
-        <!-- TAB 1: CAMPIONATO -->
+        <!-- TAB 1: CLASSIFICA -->
         <div id="sec-campionato" class="space-y-6">
             <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
                 <div class="flex items-center justify-between mb-6">
@@ -99,7 +105,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                 <div class="bg-tennis-card/50 p-4 rounded-xl border border-gray-800/80">
                     <div class="text-tennis-yellow font-bold text-sm mb-1">Vittoria Netta (3 Punti)</div>
-                    <div class="text-gray-400">Vittoria standard senza tie-break (es. 6-0, 6-4, 6-3).</div>
+                    <div class="text-gray-400">Vittoria standard senza tie-break (es. 6-0, 6-4).</div>
                 </div>
                 <div class="bg-tennis-card/50 p-4 rounded-xl border border-gray-800/80">
                     <div class="text-tennis-yellow font-bold text-sm mb-1">Vittoria Tirata (2 Punti)</div>
@@ -110,16 +116,20 @@
                     <div class="text-gray-400">Punto di consolazione se perdi al Tie-Break / 7-5.</div>
                 </div>
             </div>
+        </div>
 
+        <!-- TAB 2: CALENDARIO & STORICO -->
+        <div id="sec-calendario" class="hidden space-y-6">
             <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
-                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-history text-tennis-yellow"></i> Partite Giocate
-                </h3>
+                <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-tennis-yellow"></i> Storico Partite & Calendario
+                </h2>
+                <p class="text-gray-400 text-xs mb-6">Elenco di tutti gli scontri diretti giocate finora.</p>
                 <div id="matches-history" class="space-y-3"></div>
             </div>
         </div>
 
-        <!-- TAB 2: TORNEO MENSILE -->
+        <!-- TAB 3: TORNEO MENSILE -->
         <div id="sec-torneo" class="hidden space-y-6">
             <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
                 <div class="text-center max-w-xl mx-auto mb-8">
@@ -187,7 +197,7 @@
             </div>
         </div>
 
-        <!-- TAB 3: INSERISCI PARTITA -->
+        <!-- TAB 4: INSERISCI PARTITA -->
         <div id="sec-inserisci" class="hidden space-y-6">
             <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl max-w-xl mx-auto">
                 <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
@@ -222,6 +232,23 @@
                 </form>
             </div>
         </div>
+
+        <!-- TAB 5: IMPOSTAZIONI GIOCATORI -->
+        <div id="sec-impostazioni" class="hidden space-y-6">
+            <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl max-w-xl mx-auto">
+                <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-users-gear text-tennis-yellow"></i> Gestione 6 Giocatori
+                </h2>
+                <p class="text-gray-400 text-xs mb-6">Modifica qui i nomi dei partecipanti al campionato e al torneo.</p>
+                
+                <form id="players-form" onsubmit="updatePlayers(event)" class="space-y-4">
+                    <div id="player-inputs" class="space-y-3"></div>
+                    <button type="submit" class="w-full bg-tennis-yellow text-black font-extrabold py-3 rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 mt-4">
+                        <i class="fa-solid fa-floppy-disk"></i> Salva Nuovi Nomi
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -245,12 +272,12 @@
         }
 
         function switchTab(tab) {
-            ['campionato', 'torneo', 'inserisci'].forEach(t => {
+            ['campionato', 'calendario', 'torneo', 'inserisci', 'impostazioni'].forEach(t => {
                 document.getElementById('sec-' + t).classList.add('hidden');
-                document.getElementById('tab-' + t).className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white";
+                document.getElementById('tab-' + t).className = "flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white";
             });
             document.getElementById('sec-' + tab).classList.remove('hidden');
-            document.getElementById('tab-' + tab).className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg";
+            document.getElementById('tab-' + tab).className = "flex-1 min-w-[90px] py-3 px-2 rounded-xl font-bold text-xs md:text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg";
         }
 
         function computeStats() {
@@ -300,6 +327,7 @@
         function render() {
             const sorted = computeStats();
             
+            // RENDERING CLASSIFICA
             const tbody = document.getElementById('ranking-body');
             tbody.innerHTML = '';
             sorted.forEach((p, idx) => {
@@ -319,6 +347,7 @@
                 `;
             });
 
+            // RENDERING SEED TORNEO
             if(sorted.length >= 6) {
                 document.getElementById('t-p1').innerText = "1° " + sorted[0].name;
                 document.getElementById('t-p2').innerText = "2° " + sorted[1].name;
@@ -328,10 +357,11 @@
                 document.getElementById('t-p6').innerText = "6° " + sorted[5].name;
             }
 
+            // RENDERING CALENDARIO & STORICO
             const history = document.getElementById('matches-history');
             history.innerHTML = '';
             if(state.matches.length === 0) {
-                history.innerHTML = `<p class="text-gray-500 text-sm text-center py-4">Nessuna partita giocata.</p>`;
+                history.innerHTML = `<p class="text-gray-500 text-sm text-center py-4">Nessuna partita registrata nel calendario.</p>`;
             } else {
                 [...state.matches].reverse().forEach(m => {
                     history.innerHTML += `
@@ -350,6 +380,7 @@
                 });
             }
 
+            // POPOLA SELECTS PARTITE
             const p1Sel = document.getElementById('p1-select');
             const p2Sel = document.getElementById('p2-select');
             p1Sel.innerHTML = '';
@@ -359,6 +390,35 @@
                 p2Sel.innerHTML += `<option value="${p}">${p}</option>`;
             });
             if(state.players.length > 1) p2Sel.selectedIndex = 1;
+
+            // POPOLA INPUTS IMPOSTAZIONI GIOCATORI
+            const pContainer = document.getElementById('player-inputs');
+            pContainer.innerHTML = '';
+            state.players.forEach((p, index) => {
+                pContainer.innerHTML += `
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Giocatore ${index + 1}</label>
+                        <input type="text" id="player-input-${index}" value="${p}" required class="w-full bg-tennis-dark border border-gray-700 rounded-xl p-3 text-white font-bold focus:outline-none focus:border-tennis-yellow">
+                    </div>
+                `;
+            });
+        }
+
+        function updatePlayers(e) {
+            e.preventDefault();
+            let newPlayers = [];
+            for(let i = 0; i < 6; i++) {
+                let val = document.getElementById(`player-input-${i}`).value.trim();
+                if(val) newPlayers.push(val);
+            }
+            if(newPlayers.length < 6) {
+                alert("Inserisci tutti e 6 i nomi dei giocatori!");
+                return;
+            }
+            state.players = newPlayers;
+            saveState();
+            switchTab('campionato');
+            alert("Nomi aggiornati con successo!");
         }
 
         function addMatch(e) {
@@ -383,7 +443,7 @@
         }
 
         function deleteMatch(id) {
-            if(confirm("Vuoi davvero eliminare questa partita?")) {
+            if(confirm("Vuoi davvero eliminare questa partita dal calendario?")) {
                 state.matches = state.matches.filter(m => m.id !== id);
                 saveState();
             }
