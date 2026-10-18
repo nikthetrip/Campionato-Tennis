@@ -1,15 +1,36 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Configurazione della pagina a tutto schermo
 st.set_page_config(
-    page_title="Tennis Club 6 Amici - Campionato & Torneo",
+    page_title="Tennis Club 6 Amici",
     page_icon="🎾",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
-# Codice HTML/CSS/JS originale super curato ed elegante
-html_code = """
+# Rimuove i margini bianchi predefiniti di Streamlit per un'esperienza a tutto schermo
+st.markdown(
+    """
+    <style>
+        .block-container {
+            padding-top: 1rem;
+            padding-bottom: 0rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 100%;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+        }
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+    </style>
+""",
+    unsafe_allow_html=True,
+)
+
+html_content = """
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -55,27 +76,332 @@ html_code = """
         }
     </style>
 </head>
-<body class="min-h-screen font-sans court-bg p-4 md:p-8">
-    <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-extrabold text-tennis-yellow mb-2"><i class="fa-solid fa-tennis-ball"></i> Tennis Club 6 Amici</h1>
-            <p class="text-gray-400">Campionato Continuo & Torneo Mensile a Set Unico</p>
+<body class="min-h-screen font-sans court-bg p-2 md:p-6 pb-20">
+    <div class="max-w-5xl mx-auto">
+        <!-- HEADER -->
+        <header class="text-center my-6">
+            <div class="inline-flex items-center gap-3 bg-tennis-card px-6 py-2 rounded-full border border-tennis-yellow/30 mb-3 shadow-lg">
+                <i class="fa-solid fa-tennis-ball text-tennis-yellow text-xl animate-bounce"></i>
+                <span class="text-xs uppercase tracking-widest font-bold text-tennis-yellow">Lega Ufficiale Tra Amici</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">
+                TENNIS <span class="text-tennis-yellow">CLUB</span> 6 AMICI
+            </h1>
+            <p class="text-gray-400 text-sm mt-1">1 Set Unico • Campionato Continuo & Torneo Mensile</p>
         </header>
 
-        <div class="bg-tennis-card p-6 rounded-2xl border border-gray-800 shadow-xl mb-6">
-            <h2 class="text-xl font-bold mb-4 text-tennis-yellow"><i class="fa-solid fa-trophy"></i> Benvenuti nella Web App Ufficiale</h2>
-            <p class="text-gray-300 leading-relaxed mb-4">
-                Questa applicazione mantiene la grafica e l'esperienza d'uso che preferisci, accessibile tramite il tuo link cloud fisso. 
-                Puoi aggiornare i dati e la configurazione direttamente dal codice sorgente su GitHub: chiunque aprirà il link vedrà sempre l'ultima versione aggiornata in tempo reale!
-            </p>
-            <div class="p-4 bg-tennis-dark rounded-xl border border-gray-700">
-                <span class="text-tennis-yellow font-semibold">Stato del sistema:</span> Online e sincronizzato via GitHub Cloud.
+        <!-- NAVIGATION TABS -->
+        <div class="flex justify-center gap-2 mb-8 bg-tennis-dark/80 p-1.5 rounded-2xl border border-gray-800 max-w-xl mx-auto backdrop-blur-md">
+            <button onclick="switchTab('campionato')" id="tab-campionato" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg">
+                <i class="fa-solid fa-list-ol"></i> Campionato
+            </button>
+            <button onclick="switchTab('torneo')" id="tab-torneo" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-trophy"></i> Torneo Mensile
+            </button>
+            <button onclick="switchTab('inserisci')" id="tab-inserisci" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-circle-plus"></i> Nuova Partita
+            </button>
+        </div>
+
+        <!-- TAB 1: CAMPIONATO -->
+        <div id="sec-campionato" class="space-y-6">
+            <!-- CLASSIFICA -->
+            <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-ranking-star text-tennis-yellow"></i> Classifica Generale
+                    </h2>
+                    <span class="text-xs bg-tennis-green/80 text-tennis-yellow px-3 py-1 rounded-full border border-tennis-yellow/30 font-semibold">In Tempo Reale</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-gray-800 text-gray-400 text-xs uppercase tracking-wider">
+                                <th class="pb-3 pl-2">Pos</th>
+                                <th class="pb-3">Giocatore</th>
+                                <th class="pb-3 text-center">Punti</th>
+                                <th class="pb-3 text-center">Vinte</th>
+                                <th class="pb-3 text-center">Perse</th>
+                                <th class="pb-3 text-center">Diff. Game</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-body" class="divide-y divide-gray-800/60 font-medium">
+                            <!-- Inserito via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- REGOLAMENTO PUNTEGGI -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-tennis-card/50 p-4 rounded-xl border border-gray-800/80">
+                    <div class="text-tennis-yellow font-bold text-sm mb-1">Vittoria Netta (3 Punti)</div>
+                    <div class="text-gray-400">Vittoria standard senza tie-break (es. 6-0, 6-4, 6-3).</div>
+                </div>
+                <div class="bg-tennis-card/50 p-4 rounded-xl border border-gray-800/80">
+                    <div class="text-tennis-yellow font-bold text-sm mb-1">Vittoria Tirata (2 Punti)</div>
+                    <div class="text-gray-400">Vittoria al Tie-Break o per 7-5.</div>
+                </div>
+                <div class="bg-tennis-card/50 p-4 rounded-xl border border-gray-800/80">
+                    <div class="text-tennis-yellow font-bold text-sm mb-1">Sconfitta Tirata (1 Punto)</div>
+                    <div class="text-gray-400">Punto di consolazione se perdi al Tie-Break / 7-5.</div>
+                </div>
+            </div>
+
+            <!-- HISTORIC MATCHES -->
+            <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-history text-tennis-yellow"></i> Partite Giocate
+                </h3>
+                <div id="matches-history" class="space-y-3">
+                    <!-- Inserito via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: TORNEO MENSILE -->
+        <div id="sec-torneo" class="hidden space-y-6">
+            <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <h2 class="text-2xl font-black text-tennis-yellow mb-2">MASTER MENSILE A 6 GIOCATORI</h2>
+                    <p class="text-gray-400 text-sm">I primi 2 in classifica nel campionato accedono direttamente alle Semifinali (BYE)!</p>
+                </div>
+
+                <!-- BRACKET GRAPHIC -->
+                <div class="space-y-6">
+                    <div class="text-xs uppercase tracking-widest text-tennis-yellow font-bold text-center border-b border-gray-800 pb-2">
+                        Quarti di Finale
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-tennis-dark p-4 rounded-xl border border-gray-800">
+                            <span class="text-xs text-gray-500 font-bold block mb-2">MATCH Q1</span>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="font-bold text-white" id="t-p3">3° Classificato</span>
+                                <span class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300">Seed 3</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-t border-gray-800/50 mt-1 pt-1">
+                                <span class="font-bold text-white" id="t-p6">6° Classificato</span>
+                                <span class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300">Seed 6</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-tennis-dark p-4 rounded-xl border border-gray-800">
+                            <span class="text-xs text-gray-500 font-bold block mb-2">MATCH Q2</span>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="font-bold text-white" id="t-p4">4° Classificato</span>
+                                <span class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300">Seed 4</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-t border-gray-800/50 mt-1 pt-1">
+                                <span class="font-bold text-white" id="t-p5">5° Classificato</span>
+                                <span class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300">Seed 5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-xs uppercase tracking-widest text-tennis-yellow font-bold text-center border-b border-gray-800 pb-2 pt-4">
+                        Semifinali
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-tennis-dark p-4 rounded-xl border border-tennis-yellow/30 glow-yellow">
+                            <span class="text-xs text-tennis-yellow font-bold block mb-2">SEMIFINALE 1</span>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="font-bold text-white" id="t-p1">1° Classificato</span>
+                                <span class="text-xs bg-tennis-yellow text-black font-bold px-2 py-0.5 rounded">BYE / Seed 1</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-t border-gray-800/50 mt-1 pt-1 text-gray-400 italic">
+                                <span>Vincitore Match Q1</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-tennis-dark p-4 rounded-xl border border-tennis-yellow/30 glow-yellow">
+                            <span class="text-xs text-tennis-yellow font-bold block mb-2">SEMIFINALE 2</span>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="font-bold text-white" id="t-p2">2° Classificato</span>
+                                <span class="text-xs bg-tennis-yellow text-black font-bold px-2 py-0.5 rounded">BYE / Seed 2</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-t border-gray-800/50 mt-1 pt-1 text-gray-400 italic">
+                                <span>Vincitore Match Q2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: INSERISCI PARTITA -->
+        <div id="sec-inserisci" class="hidden space-y-6">
+            <div class="bg-tennis-card rounded-2xl p-6 border border-gray-800 shadow-xl max-w-xl mx-auto">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-tennis-yellow"></i> Registra Risultato
+                </h2>
+                
+                <form id="match-form" onsubmit="addMatch(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Giocatore 1</label>
+                        <select id="p1-select" class="w-full bg-tennis-dark border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-tennis-yellow"></select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Giocatore 2</label>
+                        <select id="p2-select" class="w-full bg-tennis-dark border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-tennis-yellow"></select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Game G1</label>
+                            <input type="number" id="p1-score" min="0" max="7" value="6" required class="w-full bg-tennis-dark border border-gray-700 rounded-xl p-3 text-white text-center text-xl font-bold focus:outline-none focus:border-tennis-yellow">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Game G2</label>
+                            <input type="number" id="p2-score" min="0" max="7" value="4" required class="w-full bg-tennis-dark border border-gray-700 rounded-xl p-3 text-white text-center text-xl font-bold focus:outline-none focus:border-tennis-yellow">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-tennis-yellow text-black font-extrabold py-4 rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 text-base">
+                        <i class="fa-solid fa-check"></i> Salva Partita
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-</body>
-</html>
-"""
 
-# Renderizza l'HTML con altezza ottimizzata all'interno di Streamlit
-components.html(html_code, height=750, scrolling=True)
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // CONFIGURAZIONE 6 AMICI
+        let state = {
+            players: ["Marco", "Luca", "Andrea", "Matteo", "Stefano", "Davide"],
+            matches: [
+                { id: 1, p1: "Marco", p2: "Luca", s1: 6, s2: 3 },
+                { id: 2, p1: "Andrea", p2: "Matteo", s1: 7, s2: 5 },
+                { id: 3, p1: "Stefano", p2: "Davide", s1: 6, s2: 1 }
+            ]
+        };
+
+        // SALVATAGGIO LOCALE DISPOSITIVO
+        const local = localStorage.getItem('tennis_app_state');
+        if(local) {
+            try { state = JSON.parse(local); } catch(e){}
+        }
+
+        function saveState() {
+            localStorage.setItem('tennis_app_state', JSON.stringify(state));
+            render();
+        }
+
+        function switchTab(tab) {
+            ['campionato', 'torneo', 'inserisci'].forEach(t => {
+                document.getElementById('sec-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white";
+            });
+            document.getElementById('sec-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 bg-tennis-yellow text-black shadow-lg";
+        }
+
+        function computeStats() {
+            let stats = {};
+            state.players.forEach(p => {
+                stats[p] = { name: p, pts: 0, won: 0, lost: 0, gf: 0, gs: 0 };
+            });
+
+            state.matches.forEach(m => {
+                if(!stats[m.p1] || !stats[m.p2]) return;
+                
+                stats[m.p1].gf += m.s1;
+                stats[m.p1].gs += m.s2;
+                stats[m.p2].gf += m.s2;
+                stats[m.p2].gs += m.s1;
+
+                if(m.s1 > m.s2) {
+                    stats[m.p1].won++;
+                    stats[m.p2].lost++;
+                    if(m.s2 >= 5) {
+                        stats[m.p1].pts += 2;
+                        stats[m.p2].pts += 1;
+                    } else {
+                        stats[m.p1].pts += 3;
+                    }
+                } else {
+                    stats[m.p2].won++;
+                    stats[m.p1].lost++;
+                    if(m.s1 >= 5) {
+                        stats[m.p2].pts += 2;
+                        stats[m.p1].pts += 1;
+                    } else {
+                        stats[m.p2].pts += 3;
+                    }
+                }
+            });
+
+            return Object.values(stats).sort((a,b) => {
+                if(b.pts !== a.pts) return b.pts - a.pts;
+                let diffB = b.gf - b.gs;
+                let diffA = a.gf - a.gs;
+                if(diffB !== diffA) return diffB - diffA;
+                return b.gf - a.gf;
+            });
+        }
+
+        function render() {
+            const sorted = computeStats();
+            
+            // RENDERING CLASSIFICA
+            const tbody = document.getElementById('ranking-body');
+            tbody.innerHTML = '';
+            sorted.forEach((p, idx) => {
+                const diff = p.gf - p.gs;
+                const diffText = diff > 0 ? `+${diff}` : diff;
+                const posBadge = idx === 0 ? '🏆' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `${idx + 1}°`));
+                
+                tbody.innerHTML += `
+                    <tr class="hover:bg-tennis-dark/40 transition-colors">
+                        <td class="py-4 pl-2 font-bold text-tennis-yellow">${posBadge}</td>
+                        <td class="py-4 font-bold text-white">${p.name}</td>
+                        <td class="py-4 text-center font-extrabold text-tennis-yellow text-lg">${p.pts}</td>
+                        <td class="py-4 text-center text-green-400">${p.won}</td>
+                        <td class="py-4 text-center text-red-400">${p.lost}</td>
+                        <td class="py-4 text-center font-bold text-gray-300">${diffText}</td>
+                    </tr>
+                `;
+            });
+
+            // RENDERING SEED TORNEO
+            if(sorted.length >= 6) {
+                document.getElementById('t-p1').innerText = "1° " + sorted[0].name;
+                document.getElementById('t-p2').innerText = "2° " + sorted[1].name;
+                document.getElementById('t-p3').innerText = "3° " + sorted[2].name;
+                document.getElementById('t-p4').innerText = "4° " + sorted[3].name;
+                document.getElementById('t-p5').innerText = "5° " + sorted[4].name;
+                document.getElementById('t-p6').innerText = "6° " + sorted[5].name;
+            }
+
+            // RENDERING STORICO
+            const history = document.getElementById('matches-history');
+            history.innerHTML = '';
+            if(state.matches.length === 0) {
+                history.innerHTML = `<p class="text-gray-500 text-sm text-center py-4">Nessuna partita giocata.</p>`;
+            } else {
+                [...state.matches].reverse().forEach(m => {
+                    history.innerHTML += `
+                        <div class="flex items-center justify-between bg-tennis-dark/60 p-3 rounded-xl border border-gray-800">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-volleyball text-tennis-yellow text-xs"></i>
+                                <span class="font-bold text-sm text-white">${m.p1}</span>
+                                <span class="bg-tennis-yellow text-black font-black text-xs px-2 py-0.5 rounded-md">${m.s1} -${m.s2}</span>
+                                <span class="font-bold text-sm text-white">${m.p2}</span>
+                            </div>
+                            <button onclick="deleteMatch(${m.id})" class="text-gray-500 hover:text-red-400 text-xs p-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+
+            // POPOLA SELECTS
+            const p1Sel = document.getElementById('p1-select');
+            const p2Sel = document.getElementById('p2-select');
+            p1Sel.innerHTML = '';
+            p2Sel.innerHTML = '';
+            state.players.forEach(p => {
+                p1Sel.innerHTML += `<option value="${p}">${p}</option>`;
+                p2Sel.innerHTML += `<option
