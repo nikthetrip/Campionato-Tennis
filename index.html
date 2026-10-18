@@ -897,6 +897,7 @@
             }
 
             saveToLocalStorage();
+            saveToGitHub(appData);
             renderStandings();
             showToast("Risultato campionato aggiornato con successo!");
         }
@@ -1040,6 +1041,7 @@
             }
 
             saveToLocalStorage();
+            saveToGitHub(appData);
             renderTournamentTab();
             renderAlboDoro();
             showToast("Incontro del tabellone salvato!");
