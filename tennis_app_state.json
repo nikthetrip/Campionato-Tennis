@@ -1,1 +1,427 @@
-{}
+{
+  "currentSeason": 1,
+  "players": [
+    {
+      "id": 1,
+      "name": "Nicola"
+    },
+    {
+      "id": 2,
+      "name": "Riccardo"
+    },
+    {
+      "id": 3,
+      "name": "Lorenzo"
+    },
+    {
+      "id": 4,
+      "name": "Michele"
+    },
+    {
+      "id": 5,
+      "name": "Diego"
+    },
+    {
+      "id": 6,
+      "name": "Filippo"
+    }
+  ],
+  "matches": [
+    {
+      "id": 1,
+      "round": 1,
+      "phase": "Andata",
+      "p1": 1,
+      "p2": 6,
+      "score1": 6,
+      "score2": 3,
+      "played": true
+    },
+    {
+      "id": 2,
+      "round": 1,
+      "phase": "Andata",
+      "p1": 2,
+      "p2": 5,
+      "score1": 0,
+      "score2": 6,
+      "played": true
+    },
+    {
+      "id": 3,
+      "round": 1,
+      "phase": "Andata",
+      "p1": 3,
+      "p2": 4,
+      "score1": 6,
+      "score2": 2,
+      "played": true
+    },
+    {
+      "id": 4,
+      "round": 2,
+      "phase": "Andata",
+      "p1": 6,
+      "p2": 4,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 5,
+      "round": 2,
+      "phase": "Andata",
+      "p1": 5,
+      "p2": 3,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 6,
+      "round": 2,
+      "phase": "Andata",
+      "p1": 1,
+      "p2": 2,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 7,
+      "round": 3,
+      "phase": "Andata",
+      "p1": 2,
+      "p2": 6,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 8,
+      "round": 3,
+      "phase": "Andata",
+      "p1": 3,
+      "p2": 1,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 9,
+      "round": 3,
+      "phase": "Andata",
+      "p1": 4,
+      "p2": 5,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 10,
+      "round": 4,
+      "phase": "Andata",
+      "p1": 6,
+      "p2": 5,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 11,
+      "round": 4,
+      "phase": "Andata",
+      "p1": 1,
+      "p2": 4,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 12,
+      "round": 4,
+      "phase": "Andata",
+      "p1": 2,
+      "p2": 3,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 13,
+      "round": 5,
+      "phase": "Andata",
+      "p1": 3,
+      "p2": 6,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 14,
+      "round": 5,
+      "phase": "Andata",
+      "p1": 4,
+      "p2": 2,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 15,
+      "round": 5,
+      "phase": "Andata",
+      "p1": 5,
+      "p2": 1,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 16,
+      "round": 6,
+      "phase": "Ritorno",
+      "p1": 6,
+      "p2": 1,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 17,
+      "round": 6,
+      "phase": "Ritorno",
+      "p1": 5,
+      "p2": 2,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 18,
+      "round": 6,
+      "phase": "Ritorno",
+      "p1": 4,
+      "p2": 3,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 19,
+      "round": 7,
+      "phase": "Ritorno",
+      "p1": 4,
+      "p2": 6,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 20,
+      "round": 7,
+      "phase": "Ritorno",
+      "p1": 3,
+      "p2": 5,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 21,
+      "round": 7,
+      "phase": "Ritorno",
+      "p1": 2,
+      "p2": 1,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 22,
+      "round": 8,
+      "phase": "Ritorno",
+      "p1": 6,
+      "p2": 2,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 23,
+      "round": 8,
+      "phase": "Ritorno",
+      "p1": 1,
+      "p2": 3,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 24,
+      "round": 8,
+      "phase": "Ritorno",
+      "p1": 5,
+      "p2": 4,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 25,
+      "round": 9,
+      "phase": "Ritorno",
+      "p1": 5,
+      "p2": 6,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 26,
+      "round": 9,
+      "phase": "Ritorno",
+      "p1": 4,
+      "p2": 1,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 27,
+      "round": 9,
+      "phase": "Ritorno",
+      "p1": 3,
+      "p2": 2,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 28,
+      "round": 10,
+      "phase": "Ritorno",
+      "p1": 6,
+      "p2": 3,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 29,
+      "round": 10,
+      "phase": "Ritorno",
+      "p1": 2,
+      "p2": 4,
+      "score1": null,
+      "score2": null,
+      "played": false
+    },
+    {
+      "id": 30,
+      "round": 10,
+      "phase": "Ritorno",
+      "p1": 1,
+      "p2": 5,
+      "score1": null,
+      "score2": null,
+      "played": false
+    }
+  ],
+  "tournaments": {
+    "pisarei": {
+      "q1": {
+        "p1": 1,
+        "p2": 2,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "q2": {
+        "p1": 6,
+        "p2": 4,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "sf1": {
+        "p1": 5,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "sf2": {
+        "p1": 3,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "f": {
+        "p1": null,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "winner": null
+    },
+    "salame": {
+      "q1": {
+        "p1": 1,
+        "p2": 2,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "q2": {
+        "p1": 6,
+        "p2": 4,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "sf1": {
+        "p1": 5,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "sf2": {
+        "p1": 3,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "f": {
+        "p1": null,
+        "p2": null,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
+      "winner": null
+    },
+    "mariola": {
+      "q1": {},
+      "q2": {},
+      "sf1": {},
+      "sf2": {},
+      "f": {},
+      "winner": null
+    },
+    "pancetta": {
+      "q1": {},
+      "q2": {},
+      "sf1": {},
+      "sf2": {},
+      "f": {},
+      "winner": null
+    }
+  },
+  "alboDoro": [],
+  "historySeasons": []
+}
