@@ -534,7 +534,39 @@
         let currentActiveTournKey = 'pisarei';
 
         // --- INIT APPLICATION ON LOAD ---
-        window.onload = function() {
+        window.onload = async function() {
+            // Se esiste la configurazione GitHub, prova a scaricare lo stato aggiornato dal cloud
+            if (window.githubConfig && window.githubConfig.token && window.githubConfig.repo) {
+                const { token, repo, path } = window.githubConfig;
+                const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+                try {
+                    const res = await fetch(url, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (res.ok) {
+                        const fileData = await res.json();
+                        // Decodifica il contenuto da Base64
+                        const jsonString = decodeURIComponent(escape(atob(fileData.content)));
+                        const cloudData = JSON.parse(jsonString);
+                        if (cloudData && cloudData.players && cloudData.matches) {
+                            appData = cloudData;
+                            saveToLocalStorage(); // Salva anche in locale per sicurezza
+                            console.log("Dati caricati con successo da GitHub!");
+                        }
+                    }
+                } catch (err) {
+                    console.warn("Impossibile caricare da GitHub, uso i dati locali:", err);
+                    loadFromLocalStorage();
+                }
+            } else {
+                loadFromLocalStorage();
+            }
+
+            if (!appData.matches || appData.matches.length === 0) {
+                generateLeagueCalendar();
+            }
+            renderAll();
+        };
             loadFromLocalStorage();
             if (!appData.matches || appData.matches.length === 0) {
                 generateLeagueCalendar();
