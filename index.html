@@ -282,4 +282,1147 @@
                                 <span>-</span>
                             </div>
                             <div class="flex items-center gap-2 pt-1">
-                                <input type="number" id="q1-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-
+                                <input type="number" id="q1-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                                <input type="number" id="q1-score2" placeholder="G2" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                            </div>
+                            <button onclick="saveBracketMatch('q1')" class="w-full py-1 text-[11px] font-bold bg-tennis-darkgreen text-tennis-yellow rounded hover:bg-tennis-green hover:text-slate-950 transition">Salva Q1</button>
+                        </div>
+
+                        <!-- Q2 Card -->
+                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase">Quarto 2 (4° vs 5°)</div>
+                            <div id="q2-p1" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>-</span>
+                            </div>
+                            <div id="q2-p2" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>-</span>
+                            </div>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="number" id="q2-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                                <input type="number" id="q2-score2" placeholder="G2" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                            </div>
+                            <button onclick="saveBracketMatch('q2')" class="w-full py-1 text-[11px] font-bold bg-tennis-darkgreen text-tennis-yellow rounded hover:bg-tennis-green hover:text-slate-950 transition">Salva Q2</button>
+                        </div>
+                    </div>
+
+                    <!-- Semifinals -->
+                    <div class="space-y-4">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider text-center bg-slate-950/60 py-1.5 rounded-lg border border-slate-800">
+                            Semifinali
+                        </div>
+
+                        <!-- SF1 Card -->
+                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase">Semifinale 1 (1° Seed vs Vinc. Q1)</div>
+                            <div id="sf1-p1" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>1° Seed</span>
+                            </div>
+                            <div id="sf1-p2" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>Vincitore Q1</span>
+                            </div>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="number" id="sf1-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                                <input type="number" id="sf1-score2" placeholder="G2" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                            </div>
+                            <button onclick="saveBracketMatch('sf1')" class="w-full py-1 text-[11px] font-bold bg-tennis-darkgreen text-tennis-yellow rounded hover:bg-tennis-green hover:text-slate-950 transition">Salva SF1</button>
+                        </div>
+
+                        <!-- SF2 Card -->
+                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase">Semifinale 2 (2° Seed vs Vinc. Q2)</div>
+                            <div id="sf2-p1" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>2° Seed</span>
+                            </div>
+                            <div id="sf2-p2" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800/50">
+                                <span>Vincitore Q2</span>
+                            </div>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="number" id="sf2-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                                <input type="number" id="sf2-score2" placeholder="G2" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                            </div>
+                            <button onclick="saveBracketMatch('sf2')" class="w-full py-1 text-[11px] font-bold bg-tennis-darkgreen text-tennis-yellow rounded hover:bg-tennis-green hover:text-slate-950 transition">Salva SF2</button>
+                        </div>
+                    </div>
+
+                    <!-- Final & Champion Card -->
+                    <div class="space-y-4">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider text-center bg-slate-950/60 py-1.5 rounded-lg border border-slate-800">
+                            Finale & Campione
+                        </div>
+
+                        <!-- Final Card -->
+                        <div class="bg-slate-950 border border-amber-500/30 rounded-xl p-3 space-y-2 shadow-lg shadow-amber-500/5">
+                            <div class="text-[10px] text-amber-400 font-bold uppercase flex items-center justify-between">
+                                <span>Finale Torneo</span>
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div id="f-p1" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800">
+                                <span>Vincitore SF1</span>
+                            </div>
+                            <div id="f-p2" class="flex justify-between items-center text-xs p-1.5 rounded bg-slate-900 border border-slate-800">
+                                <span>Vincitore SF2</span>
+                            </div>
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="number" id="f-score1" placeholder="G1" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                                <input type="number" id="f-score2" placeholder="G2" class="w-1/2 bg-slate-900 border border-slate-700 text-center text-xs py-1 rounded">
+                            </div>
+                            <button onclick="saveBracketMatch('f')" class="w-full py-1.5 text-xs font-bold bg-amber-500 text-slate-950 rounded hover:bg-amber-400 transition">Salva Finale & Incorona Campione</button>
+                        </div>
+
+                        <!-- Winner Box -->
+                        <div id="winnerDisplayBox" class="hidden bg-gradient-to-br from-amber-500/20 via-slate-900 to-slate-950 border border-amber-500/50 rounded-xl p-4 text-center space-y-2">
+                            <div class="text-3xl trophy-glow text-amber-400">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div class="text-xs uppercase text-amber-300 font-bold tracking-wider">Vincitore Torneo</div>
+                            <div id="winnerName" class="text-lg font-black text-white"> - </div>
+                            <div class="text-[10px] text-slate-400">Registrato in Albo d'Oro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: ALBO D'ORO & ARCHIVIO HISTORICAL -->
+        <div id="view-albo" class="hidden space-y-8">
+            <!-- Header section -->
+            <div class="bg-gradient-to-r from-amber-500/10 via-slate-900 to-slate-900 border border-amber-500/30 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute right-4 -bottom-6 text-9xl text-amber-500/10 pointer-events-none">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div class="relative z-10 space-y-2">
+                    <h2 class="text-2xl font-black text-white flex items-center gap-3">
+                        <i class="fa-solid fa-award text-amber-400"></i> Albo d'Oro & Archivio Storico
+                    </h2>
+                    <p class="text-sm text-slate-300 max-w-2xl">
+                        Registro permanente di tutti i Vincitori di Torneo e dei Campioni di Stagione. Ogni risultato è conservato nel tempo per tracciare la storia del campionato tra amici.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hall of Fame By Tournament -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-trophy text-tennis-yellow"></i> Albo d'Oro dei Tornei Speciali
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="alboTournamentsGrid">
+                    <!-- Dynamic cards for 4 tournaments -->
+                </div>
+            </div>
+
+            <!-- Overall Titles Leaderboard -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Most Trophies Leaderboard -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl">
+                    <h3 class="text-md font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-medal text-amber-400"></i> Palmarès Totale Giocatori
+                    </h3>
+                    <div id="palmaresList" class="space-y-2">
+                        <!-- Dynamic palmares listing -->
+                    </div>
+                </div>
+
+                <!-- Archived Seasons List -->
+                <div class="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
+                    <h3 class="text-md font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-box-archive text-emerald-400"></i> Storico Stagioni Concluse</span>
+                        <span id="totalArchivedSeasonsCount" class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full">0 Stagioni</span>
+                    </h3>
+
+                    <div id="archivedSeasonsContainer" class="space-y-4">
+                        <!-- Dynamic seasons history -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: GIOCATORI E GESTIONE DATI -->
+        <div id="view-impostazioni" class="hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Players Customization -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-users text-tennis-green"></i> I 6 Giocatori del Torneo
+                    </h2>
+                    <p class="text-xs text-slate-400">Modifica i nomi dei 6 amici partecipanti. I nomi si aggiorneranno in tutto il campionato e tornei.</p>
+
+                    <form id="playersForm" onsubmit="updatePlayerNames(event)" class="space-y-3">
+                        <div id="playerInputsContainer" class="space-y-2">
+                            <!-- Inputs generated dynamically -->
+                        </div>
+                        <button type="submit" class="w-full py-2.5 px-4 bg-tennis-green hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-emerald-500/10">
+                            Salva Nomi Giocatori
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Data Backup & Reset -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                            <i class="fa-solid fa-database text-amber-400"></i> Backup & Ripristino Dati
+                        </h2>
+                        <p class="text-xs text-slate-400">I dati sono salvati automaticamente nel browser. Puoi esportare o importare un file JSON di backup.</p>
+
+                        <div class="space-y-2 pt-2">
+                            <button onclick="exportData()" class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-xl text-xs transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-download"></i> Esporta Backup Dati (JSON)
+                            </button>
+
+                            <label class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-upload"></i> Importa Backup Dati (JSON)
+                                <input type="file" id="importFileInput" accept=".json" onchange="importData(event)" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 space-y-2">
+                        <button onclick="resetCurrentSeasonData()" class="w-full py-2 px-3 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-xl text-xs font-semibold transition">
+                            Reset Solo Stagione In Corso
+                        </button>
+                        <button onclick="resetAllData()" class="w-full py-2 px-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-xl text-xs font-semibold transition">
+                            Reset Totale (Cancella Anche Albo d'Oro)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
+        <p>Campionato Tennis 6 Amici • Gestione Stagioni & Albo d'Oro • LocalStorage Backup Enabled</p>
+    </footer>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // --- INITIAL STATE & CONSTANTS ---
+        const DEFAULT_PLAYERS = [
+            { id: 1, name: "Giocatore 1" },
+            { id: 2, name: "Giocatore 2" },
+            { id: 3, name: "Giocatore 3" },
+            { id: 4, name: "Giocatore 4" },
+            { id: 5, name: "Giocatore 5" },
+            { id: 6, name: "Giocatore 6" }
+        ];
+
+        const TOURNAMENT_KEYS = ['pisarei', 'salame', 'mariola', 'pancetta'];
+        const TOURNAMENT_NAMES = {
+            pisarei: "Torneo Pisarei",
+            salame: "Torneo Salame",
+            mariola: "Torneo Mariola",
+            pancetta: "Torneo Pancetta"
+        };
+
+        // Application State Structure
+        let appData = {
+            currentSeason: 1,
+            players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
+            matches: [], // League matches
+            tournaments: {
+                pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+            },
+            alboDoro: [], // Records array: { id, season, type: 'tourn'|'league', tournKey, title, winnerId, winnerName, date }
+            historySeasons: [] // Archived past season summaries
+        };
+
+        let currentActiveTournKey = 'pisarei';
+
+        // --- INIT APPLICATION ON LOAD ---
+        window.onload = function() {
+            loadFromLocalStorage();
+            if (!appData.matches || appData.matches.length === 0) {
+                generateLeagueCalendar();
+            }
+            renderAll();
+        };
+
+        // --- LOCAL STORAGE & BACKUP ---
+        function saveToLocalStorage() {
+            localStorage.setItem('tennis_league_6_data', JSON.stringify(appData));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('tennis_league_6_data');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    appData = Object.assign({}, appData, parsed);
+                } catch(e) {
+                    console.error("Error loading localStorage data", e);
+                }
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toast.className = `mb-4 p-4 rounded-xl border flex items-center justify-between text-sm transition-all duration-300 ${
+                type === 'success' 
+                    ? 'bg-emerald-950/80 border-emerald-800 text-emerald-200' 
+                    : 'bg-amber-950/80 border-amber-800 text-amber-200'
+            }`;
+            toastMsg.innerHTML = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => { hideToast(); }, 4000);
+        }
+
+        function hideToast() {
+            document.getElementById('toast').classList.add('hidden');
+        }
+
+        // --- TAB SWITCHING ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5";
+            });
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 bg-tennis-green text-slate-950 font-bold";
+            }
+
+            ['classifica', 'calendario', 'tornei', 'albo', 'impostazioni'].forEach(id => {
+                const el = document.getElementById(`view-${id}`);
+                if (el) el.classList.add('hidden');
+            });
+
+            const activeView = document.getElementById(`view-${tabId}`);
+            if (activeView) activeView.classList.remove('hidden');
+
+            renderAll();
+        }
+
+        // --- CALENDAR GENERATION (Berger / Round-Robin for 6 Players) ---
+        function generateLeagueCalendar() {
+            // Fixed round robin schedules for 6 players (1-6)
+            // 5 Rounds Andata (1-5), 5 Rounds Ritorno (6-10)
+            const roundsAndata = [
+                // Round 1
+                [{p1: 1, p2: 6}, {p1: 2, p2: 5}, {p1: 3, p2: 4}],
+                // Round 2
+                [{p1: 6, p2: 4}, {p1: 5, p2: 3}, {p1: 1, p2: 2}],
+                // Round 3
+                [{p1: 2, p2: 6}, {p1: 3, p2: 1}, {p1: 4, p2: 5}],
+                // Round 4
+                [{p1: 6, p2: 5}, {p1: 1, p2: 4}, {p1: 2, p2: 3}],
+                // Round 5
+                [{p1: 3, p2: 6}, {p1: 4, p2: 2}, {p1: 5, p2: 1}]
+            ];
+
+            const matches = [];
+            let matchId = 1;
+
+            // Generate Andata (Rounds 1-5)
+            roundsAndata.forEach((roundMatches, roundIdx) => {
+                const roundNum = roundIdx + 1;
+                roundMatches.forEach(m => {
+                    matches.push({
+                        id: matchId++,
+                        round: roundNum,
+                        phase: 'Andata',
+                        p1: m.p1,
+                        p2: m.p2,
+                        score1: null,
+                        score2: null,
+                        played: false
+                    });
+                });
+            });
+
+            // Generate Ritorno (Rounds 6-10) - inverted home/away
+            roundsAndata.forEach((roundMatches, roundIdx) => {
+                const roundNum = roundIdx + 6;
+                roundMatches.forEach(m => {
+                    matches.push({
+                        id: matchId++,
+                        round: roundNum,
+                        phase: 'Ritorno',
+                        p1: m.p2, // Inverted
+                        p2: m.p1,
+                        score1: null,
+                        score2: null,
+                        played: false
+                    });
+                });
+            });
+
+            appData.matches = matches;
+            saveToLocalStorage();
+        }
+
+        // --- POINT CALCULATION LOGIC ---
+        function calculatePoints(s1, s2) {
+            if (s1 === null || s2 === null || isNaN(s1) || isNaN(s2)) return { p1Pts: 0, p2Pts: 0 };
+            if (s1 === s2) return { p1Pts: 0, p2Pts: 0 }; // Tennis doesn't have draws, but safeguard
+
+            const win = s1 > s2;
+            const diff = Math.abs(s1 - s2);
+
+            // Tiebreak / Close match condition: difference of 1 game OR high game score like 7-5 / 7-6 / 6-5
+            const isClose = diff === 1 || (Math.max(s1, s2) >= 7) || (s1 === 6 && s2 === 5) || (s1 === 5 && s2 === 6);
+
+            if (win) {
+                return isClose ? { p1Pts: 2, p2Pts: 1 } : { p1Pts: 3, p2Pts: 0 };
+            } else {
+                return isClose ? { p1Pts: 1, p2Pts: 2 } : { p1Pts: 0, p2Pts: 3 };
+            }
+        }
+
+        // --- STANDINGS COMPUTATION ---
+        function getStandings() {
+            const standings = appData.players.map(p => ({
+                id: p.id,
+                name: p.name,
+                points: 0,
+                played: 0,
+                wins: 0,
+                winsTB: 0,
+                lossesTB: 0,
+                losses: 0,
+                gamesWon: 0,
+                gamesLost: 0,
+                gameDiff: 0
+            }));
+
+            const statsMap = {};
+            standings.forEach(s => statsMap[s.id] = s);
+
+            appData.matches.forEach(m => {
+                if (m.played && m.score1 !== null && m.score2 !== null) {
+                    const p1 = statsMap[m.p1];
+                    const p2 = statsMap[m.p2];
+
+                    if (p1 && p2) {
+                        const s1 = parseInt(m.score1);
+                        const s2 = parseInt(m.score2);
+
+                        const pts = calculatePoints(s1, s2);
+
+                        p1.played++;
+                        p2.played++;
+
+                        p1.points += pts.p1Pts;
+                        p2.points += pts.p2Pts;
+
+                        p1.gamesWon += s1;
+                        p1.gamesLost += s2;
+                        p2.gamesWon += s2;
+                        p2.gamesLost += s1;
+
+                        if (pts.p1Pts === 3) { p1.wins++; p2.losses++; }
+                        else if (pts.p1Pts === 2) { p1.winsTB++; p2.lossesTB++; }
+                        else if (pts.p1Pts === 1) { p1.lossesTB++; p2.winsTB++; }
+                        else if (pts.p1Pts === 0) { p1.losses++; p2.wins++; }
+                    }
+                }
+            });
+
+            // Calculate Game Diff & Sort
+            standings.forEach(s => {
+                s.gameDiff = s.gamesWon - s.gamesLost;
+            });
+
+            standings.sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                if (b.gameDiff !== a.gameDiff) return b.gameDiff - a.gameDiff;
+                return b.gamesWon - a.gamesWon;
+            });
+
+            return standings;
+        }
+
+        // --- MAIN RENDER ROUTINE ---
+        function renderAll() {
+            document.getElementById('headerSeasonBadge').innerText = `Stagione ${appData.currentSeason}`;
+            renderStandings();
+            renderCalendar();
+            renderTournamentTab();
+            renderAlboDoro();
+            renderPlayerInputs();
+        }
+
+        // --- RENDER STANDINGS ---
+        function renderStandings() {
+            const standings = getStandings();
+            const tbody = document.getElementById('standingsTableBody');
+            tbody.innerHTML = '';
+
+            standings.forEach((s, idx) => {
+                const tr = document.createElement('tr');
+                tr.className = `hover:bg-slate-800/40 transition-colors ${idx === 0 ? 'bg-amber-500/5' : ''}`;
+                
+                tr.innerHTML = `
+                    <td class="p-3 font-bold ${idx === 0 ? 'text-amber-400' : 'text-slate-400'}">${idx + 1}</td>
+                    <td class="p-3 font-bold text-white flex items-center gap-2">
+                        ${idx === 0 ? '<i class="fa-solid fa-crown text-amber-400 text-xs"></i>' : ''}
+                        ${s.name}
+                    </td>
+                    <td class="p-3 text-center font-black text-tennis-yellow bg-slate-950/30">${s.points}</td>
+                    <td class="p-3 text-center text-slate-300">${s.played}</td>
+                    <td class="p-3 text-center text-emerald-400">${s.wins}</td>
+                    <td class="p-3 text-center text-lime-400">${s.winsTB}</td>
+                    <td class="p-3 text-center text-amber-400">${s.lossesTB}</td>
+                    <td class="p-3 text-center text-rose-400">${s.losses}</td>
+                    <td class="p-3 text-center font-semibold ${s.gameDiff >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
+                        ${s.gameDiff > 0 ? '+' + s.gameDiff : s.gameDiff}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update stats box
+            const totalMatches = appData.matches.length;
+            const playedMatches = appData.matches.filter(m => m.played).length;
+            const pct = Math.round((playedMatches / totalMatches) * 100) || 0;
+
+            document.getElementById('statLeaguePct').innerText = `${pct}% (${playedMatches}/30)`;
+            document.getElementById('leagueProgressBadge').innerText = `${playedMatches}/30 Giocate`;
+
+            // Tournaments stats
+            let tournDoneCount = 0;
+            const winnersListEl = document.getElementById('statSeasonWinnersList');
+            winnersListEl.innerHTML = '';
+
+            TOURNAMENT_KEYS.forEach(key => {
+                const t = appData.tournaments[key];
+                const done = t && t.winner !== null;
+                if (done) tournDoneCount++;
+                
+                let winnerName = "In corso";
+                if (done) {
+                    const p = appData.players.find(x => x.id === t.winner);
+                    winnerName = p ? p.name : "Vincitore";
+                }
+
+                winnersListEl.innerHTML += `
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">${TOURNAMENT_NAMES[key].replace('Torneo ', '')}:</span>
+                        <span class="${done ? 'text-amber-400 font-bold' : 'text-slate-500 italic'}">${winnerName}</span>
+                    </div>
+                `;
+            });
+
+            document.getElementById('statTournamentsDone').innerText = `${tournDoneCount} / 4`;
+        }
+
+        // --- RENDER CALENDAR ---
+        function renderCalendar() {
+            const container = document.getElementById('calendarContainer');
+            const filterVal = document.getElementById('roundFilter').value;
+            container.innerHTML = '';
+
+            const playersMap = {};
+            appData.players.forEach(p => playersMap[p.id] = p.name);
+
+            // Group by round
+            const roundsMap = {};
+            appData.matches.forEach(m => {
+                if (!roundsMap[m.round]) roundsMap[m.round] = [];
+                roundsMap[m.round].push(m);
+            });
+
+            for (let r = 1; r <= 10; r++) {
+                if (filterVal !== 'all' && parseInt(filterVal) !== r) continue;
+
+                const roundMatches = roundsMap[r] || [];
+                const phase = r <= 5 ? 'Andata' : 'Ritorno';
+
+                const roundCard = document.createElement('div');
+                roundCard.className = "bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-lg";
+
+                let matchesHTML = '';
+                roundMatches.forEach(m => {
+                    const p1Name = playersMap[m.p1] || `P${m.p1}`;
+                    const p2Name = playersMap[m.p2] || `P${m.p2}`;
+
+                    matchesHTML += `
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+                            <div class="flex items-center justify-between w-full sm:w-2/3 text-xs sm:text-sm font-semibold">
+                                <span class="text-slate-200 truncate ${m.played && m.score1 > m.score2 ? 'text-tennis-yellow font-bold' : ''}">${p1Name}</span>
+                                <span class="text-slate-600 text-xs px-2">VS</span>
+                                <span class="text-slate-200 truncate text-right ${m.played && m.score2 > m.score1 ? 'text-tennis-yellow font-bold' : ''}">${p2Name}</span>
+                            </div>
+
+                            <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                                <input type="number" min="0" max="20" id="m-${m.id}-s1" value="${m.score1 !== null ? m.score1 : ''}" placeholder="G1" class="w-12 bg-slate-900 border border-slate-700 text-center text-xs py-1.5 rounded-lg text-white font-bold focus:border-tennis-green focus:outline-none">
+                                <span class="text-slate-500 font-bold">-</span>
+                                <input type="number" min="0" max="20" id="m-${m.id}-s2" value="${m.score2 !== null ? m.score2 : ''}" placeholder="G2" class="w-12 bg-slate-900 border border-slate-700 text-center text-xs py-1.5 rounded-lg text-white font-bold focus:border-tennis-green focus:outline-none">
+                                
+                                <button onclick="saveMatchScore(${m.id})" class="px-2.5 py-1.5 bg-tennis-darkgreen text-tennis-yellow hover:bg-tennis-green hover:text-slate-950 text-xs font-bold rounded-lg transition">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                roundCard.innerHTML = `
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-xs font-black uppercase tracking-wider text-tennis-green">Giornata ${r} (${phase})</span>
+                        <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">3 Partite</span>
+                    </div>
+                    <div class="space-y-2">
+                        ${matchesHTML}
+                    </div>
+                `;
+
+                container.appendChild(roundCard);
+            }
+        }
+
+        function filterCalendar() {
+            renderCalendar();
+        }
+
+        function saveMatchScore(matchId) {
+            const m = appData.matches.find(x => x.id === matchId);
+            if (!m) return;
+
+            const s1Val = document.getElementById(`m-${matchId}-s1`).value;
+            const s2Val = document.getElementById(`m-${matchId}-s2`).value;
+
+            if (s1Val === '' || s2Val === '') {
+                m.score1 = null;
+                m.score2 = null;
+                m.played = false;
+            } else {
+                m.score1 = parseInt(s1Val);
+                m.score2 = parseInt(s2Val);
+                m.played = true;
+            }
+
+            saveToLocalStorage();
+            renderStandings();
+            showToast("Risultato campionato aggiornato con successo!");
+        }
+
+        // --- TABELLONE TORNEI (BRACKET) LOGIC ---
+        function switchTournament(key) {
+            currentActiveTournKey = key;
+
+            document.querySelectorAll('.tourn-nav-btn').forEach(btn => {
+                btn.className = "tourn-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 bg-slate-800 text-slate-300 hover:bg-slate-700";
+            });
+
+            const activeBtn = document.getElementById(`tournTab-${key}`);
+            if (activeBtn) {
+                activeBtn.className = "tourn-nav-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 bg-tennis-green text-slate-950 shadow-lg shadow-lime-500/10";
+            }
+
+            document.getElementById('currentTournTitle').innerText = TOURNAMENT_NAMES[key];
+            renderTournamentTab();
+        }
+
+        function seedTournament() {
+            const standings = getStandings(); // Ranked 1st to 6th
+            const t = appData.tournaments[currentActiveTournKey];
+
+            // 1st & 2nd seed get BYE into SF1 and SF2
+            // Quarters: Q1 = 3rd vs 6th, Q2 = 4th vs 5th
+            t.q1 = { p1: standings[2].id, p2: standings[5].id, score1: null, score2: null, winner: null };
+            t.q2 = { p1: standings[3].id, p2: standings[4].id, score1: null, score2: null, winner: null };
+
+            t.sf1 = { p1: standings[0].id, p2: null, score1: null, score2: null, winner: null }; // 1st seed vs Q1 Winner
+            t.sf2 = { p1: standings[1].id, p2: null, score1: null, score2: null, winner: null }; // 2nd seed vs Q2 Winner
+
+            t.f = { p1: null, p2: null, score1: null, score2: null, winner: null };
+            t.winner = null;
+
+            saveToLocalStorage();
+            renderTournamentTab();
+            showToast(`Teste di serie aggiornate per ${TOURNAMENT_NAMES[currentActiveTournKey]} in base alla classifica!`);
+        }
+
+        function renderTournamentTab() {
+            const t = appData.tournaments[currentActiveTournKey];
+            if (!t) return;
+
+            const playersMap = {};
+            appData.players.forEach(p => playersMap[p.id] = p.name);
+
+            // Auto-initialize if empty
+            if (!t.q1 || !t.q1.p1) {
+                seedTournament();
+                return;
+            }
+
+            // Render Q1
+            renderMatchBox('q1', t.q1, playersMap);
+            // Render Q2
+            renderMatchBox('q2', t.q2, playersMap);
+
+            // Update SF entrants if Quarters played
+            if (t.q1 && t.q1.winner) t.sf1.p2 = t.q1.winner;
+            if (t.q2 && t.q2.winner) t.sf2.p2 = t.q2.winner;
+
+            // Render SF1 & SF2
+            renderMatchBox('sf1', t.sf1, playersMap);
+            renderMatchBox('sf2', t.sf2, playersMap);
+
+            // Update Final entrants if SF played
+            if (t.sf1 && t.sf1.winner) t.f.p1 = t.sf1.winner;
+            if (t.sf2 && t.sf2.winner) t.f.p2 = t.sf2.winner;
+
+            // Render Final
+            renderMatchBox('f', t.f, playersMap);
+
+            // Winner Box
+            const winnerDisplayBox = document.getElementById('winnerDisplayBox');
+            if (t.winner) {
+                winnerDisplayBox.classList.remove('hidden');
+                document.getElementById('winnerName').innerText = playersMap[t.winner] || 'Campione';
+            } else {
+                winnerDisplayBox.classList.add('hidden');
+            }
+        }
+
+        function renderMatchBox(code, matchData, playersMap) {
+            const p1El = document.getElementById(`${code}-p1`);
+            const p2El = document.getElementById(`${code}-p2`);
+            const s1Inp = document.getElementById(`${code}-score1`);
+            const s2Inp = document.getElementById(`${code}-score2`);
+
+            const p1Name = matchData.p1 ? playersMap[matchData.p1] : 'In attesa...';
+            const p2Name = matchData.p2 ? playersMap[matchData.p2] : 'In attesa...';
+
+            p1El.innerHTML = `
+                <span class="${matchData.winner === matchData.p1 && matchData.p1 ? 'font-bold text-tennis-yellow' : 'text-slate-300'}">${p1Name}</span>
+                ${matchData.winner === matchData.p1 && matchData.p1 ? '<i class="fa-solid fa-check text-tennis-green"></i>' : ''}
+            `;
+
+            p2El.innerHTML = `
+                <span class="${matchData.winner === matchData.p2 && matchData.p2 ? 'font-bold text-tennis-yellow' : 'text-slate-300'}">${p2Name}</span>
+                ${matchData.winner === matchData.p2 && matchData.p2 ? '<i class="fa-solid fa-check text-tennis-green"></i>' : ''}
+            `;
+
+            s1Inp.value = matchData.score1 !== null && matchData.score1 !== undefined ? matchData.score1 : '';
+            s2Inp.value = matchData.score2 !== null && matchData.score2 !== undefined ? matchData.score2 : '';
+        }
+
+        function saveBracketMatch(code) {
+            const t = appData.tournaments[currentActiveTournKey];
+            const matchData = t[code];
+
+            if (!matchData.p1 || !matchData.p2) {
+                showToast("Entrambi i giocatori devono essere definiti per giocare il match!", "warning");
+                return;
+            }
+
+            const s1Val = document.getElementById(`${code}-score1`).value;
+            const s2Val = document.getElementById(`${code}-score2`).value;
+
+            if (s1Val === '' || s2Val === '') {
+                showToast("Inserisci entrambi i punteggi dei game.", "warning");
+                return;
+            }
+
+            const s1 = parseInt(s1Val);
+            const s2 = parseInt(s2Val);
+
+            if (s1 === s2) {
+                showToast("Nel tennis un match non può finire in parità!", "warning");
+                return;
+            }
+
+            matchData.score1 = s1;
+            matchData.score2 = s2;
+            matchData.winner = s1 > s2 ? matchData.p1 : matchData.p2;
+
+            // If Final match, set tournament winner and record in Albo d'Oro
+            if (code === 'f') {
+                t.winner = matchData.winner;
+                recordTournamentInAlbo(currentActiveTournKey, t.winner);
+            }
+
+            saveToLocalStorage();
+            renderTournamentTab();
+            renderAlboDoro();
+            showToast("Incontro del tabellone salvato!");
+        }
+
+        // --- ALBO D'ORO & HISTORICAL ARCHIVE LOGIC ---
+        function recordTournamentInAlbo(tournKey, winnerId) {
+            const winnerObj = appData.players.find(p => p.id === winnerId);
+            if (!winnerObj) return;
+
+            // Check if entry already exists for this season and tournament
+            const existingIdx = appData.alboDoro.findIndex(item => 
+                item.season === appData.currentSeason && item.tournKey === tournKey && item.type === 'tourn'
+            );
+
+            const recordObj = {
+                id: Date.now(),
+                season: appData.currentSeason,
+                type: 'tourn',
+                tournKey: tournKey,
+                title: TOURNAMENT_NAMES[tournKey],
+                winnerId: winnerId,
+                winnerName: winnerObj.name,
+                date: new Date().toLocaleDateString('it-IT')
+            };
+
+            if (existingIdx >= 0) {
+                appData.alboDoro[existingIdx] = recordObj;
+            } else {
+                appData.alboDoro.push(recordObj);
+            }
+
+            saveToLocalStorage();
+        }
+
+        function renderAlboDoro() {
+            // Render 4 Tournament Cards
+            const container = document.getElementById('alboTournamentsGrid');
+            container.innerHTML = '';
+
+            TOURNAMENT_KEYS.forEach(key => {
+                // Find all historical winners for this tournament
+                const history = appData.alboDoro.filter(a => a.type === 'tourn' && a.tournKey === key);
+
+                let historyHTML = '';
+                if (history.length === 0) {
+                    historyHTML = `<div class="text-xs text-slate-500 italic py-2">Nessun vincitore ancora registrato.</div>`;
+                } else {
+                    // Sort by season desc
+                    history.sort((a, b) => b.season - a.season);
+                    history.forEach(h => {
+                        historyHTML += `
+                            <div class="flex justify-between items-center text-xs py-1 border-b border-slate-800/60 last:border-0">
+                                <span class="text-slate-400 font-semibold">Stagione ${h.season}</span>
+                                <span class="text-tennis-yellow font-bold">${h.winnerName}</span>
+                            </div>
+                        `;
+                    });
+                }
+
+                container.innerHTML += `
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-xl">
+                        <div class="flex items-center gap-2.5 pb-2 border-b border-slate-800">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-sm">${TOURNAMENT_NAMES[key]}</h4>
+                        </div>
+                        <div class="space-y-1 custom-scrollbar max-h-48 overflow-y-auto pr-1">
+                            ${historyHTML}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Palmares Leaderboard
+            renderPalmares();
+
+            // Render Archived Seasons
+            renderArchivedSeasons();
+        }
+
+        function renderPalmares() {
+            const listEl = document.getElementById('palmaresList');
+            listEl.innerHTML = '';
+
+            // Aggregate counts per player
+            const counts = appData.players.map(p => ({
+                id: p.id,
+                name: p.name,
+                leagueTitles: 0,
+                tournTitles: 0,
+                totalTitles: 0
+            }));
+
+            const countMap = {};
+            counts.forEach(c => countMap[c.id] = c);
+
+            appData.alboDoro.forEach(rec => {
+                if (countMap[rec.winnerId]) {
+                    if (rec.type === 'league') {
+                        countMap[rec.winnerId].leagueTitles++;
+                    } else {
+                        countMap[rec.winnerId].tournTitles++;
+                    }
+                    countMap[rec.winnerId].totalTitles++;
+                }
+            });
+
+            counts.sort((a, b) => b.totalTitles - a.totalTitles || b.leagueTitles - a.leagueTitles);
+
+            counts.forEach((c, idx) => {
+                listEl.innerHTML += `
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
+                        <div class="flex items-center gap-2.5">
+                            <span class="font-bold text-slate-500 w-4">${idx + 1}.</span>
+                            <span class="font-bold text-white">${c.name}</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-400" title="Campionati">${c.leagueTitles} <i class="fa-solid fa-crown text-amber-400 text-[10px]"></i></span>
+                            <span class="text-slate-400" title="Tornei">${c.tournTitles} <i class="fa-solid fa-trophy text-tennis-yellow text-[10px]"></i></span>
+                            <span class="font-black text-tennis-yellow bg-slate-900 px-2 py-0.5 rounded-lg border border-slate-800">${c.totalTitles} Titoli</span>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderArchivedSeasons() {
+            const container = document.getElementById('archivedSeasonsContainer');
+            document.getElementById('totalArchivedSeasonsCount').innerText = `${appData.historySeasons.length} Stagioni`;
+            container.innerHTML = '';
+
+            if (appData.historySeasons.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 text-xs bg-slate-950/40 rounded-xl border border-slate-800/60">
+                        Nessuna stagione conclusa ed archiviata finora. Concludi la stagione 1 quando tutti i match e tornei saranno terminati.
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort seasons descending
+            const sortedHistory = [...appData.historySeasons].sort((a, b) => b.season - a.season);
+
+            sortedHistory.forEach(s => {
+                container.innerHTML += `
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-center pb-2 border-b border-slate-800/80">
+                            <span class="text-sm font-black text-tennis-yellow">STAGIONE ${s.season}</span>
+                            <span class="text-[10px] text-slate-400">Archiviata il ${s.archivedDate}</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 text-[10px] uppercase font-bold block">Vincitore Campionato</span>
+                                <span class="text-amber-400 font-bold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-crown text-amber-400"></i> ${s.leagueChampionName} (${s.leaguePoints} pt)
+                                </span>
+                            </div>
+                            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <span class="text-slate-400 text-[10px] uppercase font-bold block">Vincitori Tornei</span>
+                                <div class="text-[11px] text-slate-300">Pisarei: <strong class="text-tennis-yellow">${s.tournWinners.pisarei || '-'}</strong></div>
+                                <div class="text-[11px] text-slate-300">Salame: <strong class="text-tennis-yellow">${s.tournWinners.salame || '-'}</strong></div>
+                                <div class="text-[11px] text-slate-300">Mariola: <strong class="text-tennis-yellow">${s.tournWinners.mariola || '-'}</strong></div>
+                                <div class="text-[11px] text-slate-300">Pancetta: <strong class="text-tennis-yellow">${s.tournWinners.pancetta || '-'}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // --- SEASON ROLLOVER & FINALIZE ---
+        function checkAndFinalizeSeason() {
+            const playedCount = appData.matches.filter(m => m.played).length;
+            let uncompleteTournaments = [];
+
+            TOURNAMENT_KEYS.forEach(key => {
+                if (!appData.tournaments[key] || !appData.tournaments[key].winner) {
+                    uncompleteTournaments.push(TOURNAMENT_NAMES[key]);
+                }
+            });
+
+            if (playedCount < 30 || uncompleteTournaments.length > 0) {
+                let msg = "Attenzione: La stagione non è ancora completamente ultimata:\n";
+                if (playedCount < 30) msg += `- Mancano ${30 - playedCount} partite di campionato.\n`;
+                if (uncompleteTournaments.length > 0) msg += `- Tornei non ancora conclusi: ${uncompleteTournaments.join(', ')}.\n`;
+                msg += "\nVuoi davvero concludere ed archiviare la stagione adesso?";
+
+                if (!confirm(msg)) return;
+            } else {
+                if (!confirm("Sei sicuro di voler concludere la Stagione attuale? Verrà salvata nell'archivio storico e inizierà la nuova stagione.")) {
+                    return;
+                }
+            }
+
+            finalizeAndStartNewSeason();
+        }
+
+        function finalizeAndStartNewSeason() {
+            const standings = getStandings();
+            const leagueWinner = standings[0];
+
+            // Record League Winner in Albo d'Oro
+            appData.alboDoro.push({
+                id: Date.now(),
+                season: appData.currentSeason,
+                type: 'league',
+                tournKey: 'campionato',
+                title: `Campionato Stagione ${appData.currentSeason}`,
+                winnerId: leagueWinner.id,
+                winnerName: leagueWinner.name,
+                date: new Date().toLocaleDateString('it-IT')
+            });
+
+            // Gather tournament winners map
+            const tournWinnersMap = {};
+            TOURNAMENT_KEYS.forEach(key => {
+                const wId = appData.tournaments[key] ? appData.tournaments[key].winner : null;
+                const p = appData.players.find(x => x.id === wId);
+                tournWinnersMap[key] = p ? p.name : 'N.D.';
+            });
+
+            // Store in season history
+            appData.historySeasons.push({
+                season: appData.currentSeason,
+                leagueChampionId: leagueWinner.id,
+                leagueChampionName: leagueWinner.name,
+                leaguePoints: leagueWinner.points,
+                tournWinners: tournWinnersMap,
+                archivedDate: new Date().toLocaleDateString('it-IT')
+            });
+
+            // Increment Season
+            appData.currentSeason++;
+
+            // Reset current season league and tournaments
+            generateLeagueCalendar();
+            appData.tournaments = {
+                pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+            };
+
+            saveToLocalStorage();
+            renderAll();
+            showToast(`Stagione conclusa! Benvenuto nella Stagione ${appData.currentSeason}!`, "success");
+            switchTab('albo');
+        }
+
+        // --- PLAYERS MANAGEMENT ---
+        function renderPlayerInputs() {
+            const container = document.getElementById('playerInputsContainer');
+            container.innerHTML = '';
+
+            appData.players.forEach((p, idx) => {
+                container.innerHTML += `
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 w-6">#${idx + 1}</span>
+                        <input type="text" id="player-input-${p.id}" value="${p.name}" required class="flex-1 bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl p-2.5 focus:outline-none focus:border-tennis-green">
+                    </div>
+                `;
+            });
+        }
+
+        function updatePlayerNames(e) {
+            e.preventDefault();
+            appData.players.forEach(p => {
+                const inp = document.getElementById(`player-input-${p.id}`);
+                if (inp && inp.value.trim() !== '') {
+                    p.name = inp.value.trim();
+                }
+            });
+
+            saveToLocalStorage();
+            renderAll();
+            showToast("Nomi giocatori aggiornati!");
+        }
+
+        // --- BACKUP & RESET HANDLERS ---
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `tennis_league_backup_s${appData.currentSeason}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Backup esportato con successo!");
+        }
+
+        function importData(event) {
+            const fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (parsed && parsed.players && parsed.matches) {
+                        appData = parsed;
+                        saveToLocalStorage();
+                        renderAll();
+                        showToast("Dati importati con successo!");
+                    } else {
+                        showToast("Formato file JSON non valido.", "warning");
+                    }
+                } catch(err) {
+                    showToast("Errore durante la lettura del file.", "warning");
+                }
+            };
+            if (event.target.files[0]) {
+                fileReader.readAsText(event.target.files[0]);
+            }
+        }
+
+        function resetCurrentSeasonData() {
+            if (confirm("Vuoi davvero azzerare solo i match ed i tornei della stagione in corso? L'Albo d'Oro verrà conservato.")) {
+                generateLeagueCalendar();
+                appData.tournaments = {
+                    pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+                };
+                saveToLocalStorage();
+                renderAll();
+                showToast("Stagione in corso resettata.");
+            }
+        }
+
+        function resetAllData() {
+            if (confirm("ATTENZIONE: Questa azione cancellerà TUTTO (Albo d'Oro, Archivio, Match e Tornei). Proseguire?")) {
+                localStorage.removeItem('tennis_league_6_data');
+                appData = {
+                    currentSeason: 1,
+                    players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
+                    matches: [],
+                    tournaments: {
+                        pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+                    },
+                    alboDoro: [],
+                    historySeasons: []
+                };
+                generateLeagueCalendar();
+                saveToLocalStorage();
+                renderAll();
+                showToast("Tutti i dati sono stati cancellati.");
+            }
+        }
+        async function saveToGitHub(newState) {
+    if (!window.githubConfig || !window.githubConfig.token) return;
+    const { token, repo, path } = window.githubConfig;
+    const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+    
+    try {
+        const getRes = await fetch(url, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const fileData = await getRes.json();
+        const sha = fileData.sha;
+
+        const contentStr = JSON.stringify(newState, null, 2);
+        const base64Content = btoa(unescape(encodeURIComponent(contentStr)));
+
+        await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: "Aggiornamento risultati da app",
+                content: base64Content,
+                sha: sha
+            })
+        });
+        console.log("Sincronizzato con GitHub!");
+    } catch (err) {
+        console.error("Errore sync GitHub:", err);
+    }
+}
+    </script>
+</body>
+</html>
