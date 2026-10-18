@@ -23,12 +23,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Configurazione GitHub dalle Secrets di Streamlit
+# Configurazione GitHub dalle Secrets
 GITHUB_TOKEN = st.secrets.get("GITHUB_TOKEN", "")
 GITHUB_REPO = st.secrets.get("GITHUB_REPO", "")
 GITHUB_FILE_PATH = st.secrets.get("GITHUB_FILE_PATH", "tennis_app_state.json")
 
-# Endpoint per le API di GitHub
 API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
 headers = {
     "Authorization": f"Bearer {GITHUB_TOKEN}",
@@ -36,22 +35,10 @@ headers = {
 }
 
 
-# Gestione delle richieste POST inviate dall'interfaccia HTML (es. salvataggio partita)
-query_params = st.query_params
-if "action" in query_params and query_params["action"] == "save_state":
-  try:
-    # Legge il corpo della richiesta inviata dal browser
-    body_bytes = st.context.headers.get("body", None)
-    # In alternativa gestiamo i dati passati via session_state o query se necessario
-    st.stop()
-  except Exception as e:
-    pass
-
-
-# Funzione per leggere lo stato corrente da GitHub
+# Funzione per leggere lo stato da GitHub
 def fetch_github_state():
   if not GITHUB_TOKEN or not GITHUB_REPO:
-    return None
+    return None, None
   try:
     response = requests.get(API_URL, headers=headers)
     if response.status_code == 200:
@@ -59,17 +46,50 @@ def fetch_github_state():
       file_content = base64.b64decode(file_info["content"]).decode("utf-8")
       return json.loads(file_content), file_info["sha"]
   except Exception as e:
-    print("Errore lettura GitHub:", e)
+    print("Errore lettura:", e)
   return None, None
 
 
-# Legge l'HTML base
+# Funzione per scrivere lo stato su GitHub quando l'utente salva
+def save_to_github(new_state_dict):
+  if not GITHUB_TOKEN or not GITHUB_REPO:
+    return False
+  try:
+    # Prima otteniamo lo SHA aggiornato del file
+    _, sha = fetch_github_state()
+    if not sha:
+      return False
+
+    content_str = json.dumps(new_state_dict, indent=2)
+    content_encoded = base64.b64encode(content_str.encode("utf-8")).decode(
+        "utf-8"
+    )
+
+    payload = {
+        "message": "Aggiornamento risultati torneo da app",
+        "content": content_encoded,
+        "sha": sha,
+    }
+    response = requests.put(API_URL, headers=headers, json=payload)
+    return response.status_code in [200, 201]
+  except Exception as e:
+    print("Errore scrittura:", e)
+    return False
+
+
+# Intercetta i dati inviati dall'interfaccia se l'utente ha salvato una partita
+if st.query_params.get("save") == "true":
+  # Leggiamo i dati passati via query string o post se presenti,
+  # oppure gestiamo il salvataggio direttamente tramite un endpoint integrato.
+  pass
+
+# Leggi HTML base
 with open("index.html", "r", encoding="utf-8") as f:
   html_content = f.read()
 
-# Carica i dati aggiornati da GitHub se disponibili
-server_data, file_sha = fetch_github_state()
-if server_data:
+# Carica i dati attuali da GitHub
+server_data, _ = fetch_github_state()
+if server_data and server_data != {}:
   json_str = json.dumps(server_data)
   injection_script = f"""
     <script>
