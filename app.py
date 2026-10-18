@@ -52,7 +52,7 @@ st.markdown(
 # Sidebar per gestione giocatori
 st.sidebar.header("👥 Gestione Giocatori")
 nuovi_nomi = []
-for i in range(6]:
+for i in range(6):
   nome = st.sidebar.text_input(
       f"Giocatore {i+1}", data["giocatori"][i], key=f"g_{i}"
   )
