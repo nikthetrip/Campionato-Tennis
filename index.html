@@ -1423,6 +1423,23 @@
         console.error("Errore sync GitHub:", err);
     }
 }
+async function saveToGitHub(newState) {
+    if (!window.githubConfig || !window.githubConfig.token) return;
+    const { token, repo, path } = window.githubConfig;
+    const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+    try {
+        const getRes = await fetch(url, { headers: { 'Authorization': `Bearer ${token}` } });
+        const fileData = await getRes.json();
+        const base64Content = btoa(unescape(encodeURIComponent(JSON.stringify(newState, null, 2))));
+        await fetch(url, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: "Aggiornamento risultati da app", content: base64Content, sha: fileData.sha })
+        });
+    } catch (err) {
+        console.error("Errore sync GitHub:", err);
+    }
+}        
     </script>
 </body>
 </html>
