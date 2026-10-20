@@ -494,20 +494,20 @@
             pancetta: "Torneo Pancetta"
         };
 
-        // Caricamento sicuro dello stato (priorità a window.serverState fornito da Python)
-        let appData = window.serverState || JSON.parse(localStorage.getItem('tennis_league_6_data')) || {
-            currentSeason: 1,
-            players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
-            matches: [],
-            tournaments: {
-                pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
-                salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
-                mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
-                pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
-            },
-            alboDoro: [],
-            historySeasons: []
-        };
+// Diamo la precedenza a localStorage così le modifiche/reset locali non vengono scavalcate da Streamlit
+let appData = JSON.parse(localStorage.getItem('tennis_league_6_data')) || window.serverState || {
+    currentSeason: 1,
+    players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
+    matches: [],
+    tournaments: {
+        pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+        salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+        mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+        pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+    },
+    alboDoro: [],
+    historySeasons: []
+};
 
         let currentActiveTournKey = 'pisarei';
 
