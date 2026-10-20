@@ -361,11 +361,11 @@
       "f": {
         "p1": 1,
         "p2": 2,
-        "score1": null,
-        "score2": null,
-        "winner": null
+        "score1": 0,
+        "score2": 6,
+        "winner": 2
       },
-      "winner": null
+      "winner": 2
     },
     "salame": {
       "q1": {},
@@ -392,6 +392,17 @@
       "winner": null
     }
   },
-  "alboDoro": [],
+  "alboDoro": [
+    {
+      "id": 1792483223761,
+      "season": 1,
+      "type": "tourn",
+      "tournKey": "pisarei",
+      "title": "Torneo Pisarei",
+      "winnerId": 2,
+      "winnerName": "Lorenzo",
+      "date": "20/10/2026"
+    }
+  ],
   "historySeasons": []
 }
