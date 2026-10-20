@@ -1064,12 +1064,16 @@
                 location.reload();
             }
         }
-        async function resetLeagueCalendarOnly() {
+    async function resetLeagueCalendarOnly() {
     if (confirm("Sei sicuro di voler rigenerare il calendario? Tutti i punteggi inseriti nelle giornate del campionato verranno azzerati (i tornei e l'Albo d'Oro rimarranno intatti).")) {
         generateLeagueCalendar();
         saveToLocalStorage();
         await saveToGitHub(appData);
-        renderAll();
+        
+        // AGGIUNGI QUESTO PER AGGIORNARE LA VISTA VISIVA
+        renderCalendar(); 
+        renderStandings(); // Aggiorna anche la classifica a zero
+        
         showToast("Calendario del campionato rigenerato con successo!");
     }
 }
