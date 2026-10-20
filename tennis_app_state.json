@@ -333,9 +333,9 @@
       "q1": {
         "p1": 1,
         "p2": 2,
-        "score1": null,
-        "score2": null,
-        "winner": null
+        "score1": 6,
+        "score2": 0,
+        "winner": 1
       },
       "q2": {
         "p1": 6,
@@ -346,7 +346,7 @@
       },
       "sf1": {
         "p1": 5,
-        "p2": null,
+        "p2": 1,
         "score1": null,
         "score2": null,
         "winner": null
