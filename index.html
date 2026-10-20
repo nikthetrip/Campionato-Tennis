@@ -190,6 +190,7 @@
                             <li><strong class="text-lime-400">2 Punti:</strong> Vittoria risicata o al Tie-break (es. 7-5, 7-6, 6-5).</li>
                             <li><strong class="text-amber-400">1 Punto:</strong> Sconfitta al Tie-break o di misura (7-5, 7-6, 6-5).</li>
                             <li><strong class="text-rose-400">0 Punti:</strong> Sconfitta standard.</li>
+                            <li><strong class="text-tennis-yellow">+10 Punti:</strong> Bonus per la vittoria di un Torneo Speciale.</li>
                         </ul>
                     </div>
                 </div>
@@ -638,6 +639,7 @@
             const statsMap = {};
             standings.forEach(s => statsMap[s.id] = s);
 
+            // 1. Calcolo punti dalle partite di campionato
             appData.matches.forEach(m => {
                 if (m.played && m.score1 !== null && m.score2 !== null) {
                     const p1 = statsMap[m.p1];
@@ -655,6 +657,13 @@
                         else if (pts.p1Pts === 1) { p1.lossesTB++; p2.winsTB++; }
                         else if (pts.p1Pts === 0) { p1.losses++; p2.wins++; }
                     }
+                }
+            });
+
+            // 2. Aggiunta dei 10 punti bonus per ciascun Torneo Speciale vinto (presente nell'Albo d'Oro)
+            appData.alboDoro.forEach(rec => {
+                if (rec.type === 'tourn' && statsMap[rec.winnerId]) {
+                    statsMap[rec.winnerId].points += 10;
                 }
             });
 
