@@ -1,65 +1,19 @@
 {
   "currentSeason": 1,
   "players": [
-    {
-      "id": 1,
-      "name": "Giocatore 1"
-    },
-    {
-      "id": 2,
-      "name": "Giocatore 2"
-    },
-    {
-      "id": 3,
-      "name": "Giocatore 3"
-    },
-    {
-      "id": 4,
-      "name": "Giocatore 4"
-    },
-    {
-      "id": 5,
-      "name": "Giocatore 5"
-    },
-    {
-      "id": 6,
-      "name": "Giocatore 6"
-    }
+    { "id": 1, "name": "Giocatore 1" },
+    { "id": 2, "name": "Giocatore 2" },
+    { "id": 3, "name": "Giocatore 3" },
+    { "id": 4, "name": "Giocatore 4" },
+    { "id": 5, "name": "Giocatore 5" },
+    { "id": 6, "name": "Giocatore 6" }
   ],
   "matches": [],
   "tournaments": {
-    "pisarei": {
-      "q1": {},
-      "q2": {},
-      "sf1": {},
-      "sf2": {},
-      "f": {},
-      "winner": null
-    },
-    "salame": {
-      "q1": {},
-      "q2": {},
-      "sf1": {},
-      "sf2": {},
-      "f": {},
-      "winner": null
-    },
-    "mariola": {
-      "q1": {},
-      "q2": {},
-      "sf1": {},
-      "sf2": {},
-      "f": {},
-      "winner": null
-    },
-    "pancetta": {
-      "q1": {},
-      "q2": {},
-      "sf1": {},
-      "sf2": {},
-      "f": {},
-      "winner": null
-    }
+    "pisarei": { "q1": {}, "q2": {}, "sf1": {}, "sf2": {}, "f": {}, "winner": null },
+    "salame": { "q1": {}, "q2": {}, "sf1": {}, "sf2": {}, "f": {}, "winner": null },
+    "mariola": { "q1": {}, "q2": {}, "sf1": {}, "sf2": {}, "f": {}, "winner": null },
+    "pancetta": { "q1": {}, "q2": {}, "sf1": {}, "sf2": {}, "f": {}, "winner": null }
   },
   "alboDoro": [],
   "historySeasons": []
