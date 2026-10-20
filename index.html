@@ -1014,6 +1014,30 @@
             saveToGitHub(appData);
             renderAll();
         }
+        async function resetAllData() {
+            if (confirm("Vuoi davvero azzerare TUTTO (campionato, tornei e albo d'oro) anche sul Cloud di GitHub?")) {
+                localStorage.removeItem('tennis_league_6_data');
+                
+                // Crea uno stato pulito iniziale
+                const defaultState = {
+                    currentSeason: 1,
+                    players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
+                    matches: [],
+                    tournaments: {
+                        pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                        pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+                    },
+                    alboDoro: [],
+                    historySeasons: []
+                };
+
+                // Pulisce anche GitHub sovrascrivendolo con lo stato vuoto
+                await saveToGitHub(defaultState);
+                location.reload();
+            }
+        }
     </script>
 </body>
 </html>
