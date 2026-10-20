@@ -1014,12 +1014,32 @@
             saveToGitHub(appData);
             renderAll();
         }
+        
+        async function resetCurrentSeasonData() {
+            if (confirm("Vuoi davvero resettare la stagione in corso e ripulire l'albo d'oro di questa stagione?")) {
+                appData.matches = [];
+                appData.tournaments = {
+                    pisarei: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    salame: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    mariola: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null },
+                    pancetta: { q1:{}, q2:{}, sf1:{}, sf2:{}, f:{}, winner: null }
+                };
+                // Rimuove i record dall'albo d'oro della stagione corrente
+                appData.alboDoro = appData.alboDoro.filter(item => item.season !== appData.currentSeason);
+                
+                generateLeagueCalendar();
+                saveToLocalStorage();
+                await saveToGitHub(appData);
+                renderAll();
+                showToast("Stagione resettata con successo!");
+            }
+        }
+        
         async function resetAllData() {
-            if (confirm("Vuoi davvero azzerare TUTTO (campionato, tornei e albo d'oro) anche sul Cloud di GitHub?")) {
+            if (confirm("ATTENZIONE: Vuoi davvero azzerare TUTTO (tutte le stagioni, classifiche, tornei e albo d'oro)?")) {
                 localStorage.removeItem('tennis_league_6_data');
                 
-                // Crea uno stato pulito iniziale
-                const defaultState = {
+                const cleanState = {
                     currentSeason: 1,
                     players: JSON.parse(JSON.stringify(DEFAULT_PLAYERS)),
                     matches: [],
@@ -1033,8 +1053,10 @@
                     historySeasons: []
                 };
 
-                // Pulisce anche GitHub sovrascrivendolo con lo stato vuoto
-                await saveToGitHub(defaultState);
+                appData = cleanState;
+                generateLeagueCalendar();
+                saveToLocalStorage();
+                await saveToGitHub(appData);
                 location.reload();
             }
         }
