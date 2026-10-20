@@ -354,13 +354,13 @@
       "sf2": {
         "p1": 2,
         "p2": 4,
-        "score1": null,
-        "score2": null,
-        "winner": null
+        "score1": 6,
+        "score2": 0,
+        "winner": 2
       },
       "f": {
         "p1": 1,
-        "p2": null,
+        "p2": 2,
         "score1": null,
         "score2": null,
         "winner": null
