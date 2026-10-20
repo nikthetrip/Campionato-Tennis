@@ -33,9 +33,9 @@
       "phase": "Andata",
       "p1": 1,
       "p2": 6,
-      "score1": 0,
-      "score2": 6,
-      "played": true
+      "score1": null,
+      "score2": null,
+      "played": false
     },
     {
       "id": 2,
@@ -330,42 +330,12 @@
   ],
   "tournaments": {
     "pisarei": {
-      "q1": {
-        "p1": 3,
-        "p2": 6,
-        "score1": 6,
-        "score2": 0,
-        "winner": 3
-      },
-      "q2": {
-        "p1": 4,
-        "p2": 5,
-        "score1": 6,
-        "score2": 0,
-        "winner": 4
-      },
-      "sf1": {
-        "p1": 1,
-        "p2": 3,
-        "score1": 6,
-        "score2": 0,
-        "winner": 1
-      },
-      "sf2": {
-        "p1": 2,
-        "p2": 4,
-        "score1": 6,
-        "score2": 0,
-        "winner": 2
-      },
-      "f": {
-        "p1": 1,
-        "p2": 2,
-        "score1": 0,
-        "score2": 6,
-        "winner": 2
-      },
-      "winner": 2
+      "q1": {},
+      "q2": {},
+      "sf1": {},
+      "sf2": {},
+      "f": {},
+      "winner": null
     },
     "salame": {
       "q1": {},
@@ -392,17 +362,6 @@
       "winner": null
     }
   },
-  "alboDoro": [
-    {
-      "id": 1792483223761,
-      "season": 1,
-      "type": "tourn",
-      "tournKey": "pisarei",
-      "title": "Torneo Pisarei",
-      "winnerId": 2,
-      "winnerName": "Lorenzo",
-      "date": "20/10/2026"
-    }
-  ],
+  "alboDoro": [],
   "historySeasons": []
 }
