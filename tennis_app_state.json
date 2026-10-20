@@ -3,27 +3,27 @@
   "players": [
     {
       "id": 1,
-      "name": "Giocatore 1"
+      "name": "Nicola"
     },
     {
       "id": 2,
-      "name": "Giocatore 2"
+      "name": "Lorenzo"
     },
     {
       "id": 3,
-      "name": "Giocatore 3"
+      "name": "Michele"
     },
     {
       "id": 4,
-      "name": "Giocatore 4"
+      "name": "Diego"
     },
     {
       "id": 5,
-      "name": "Giocatore 5"
+      "name": "Filippo"
     },
     {
       "id": 6,
-      "name": "Giocatore 6"
+      "name": "Riccardo"
     }
   ],
   "matches": [
