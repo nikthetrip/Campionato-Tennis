@@ -1066,24 +1066,19 @@ let appData = JSON.parse(localStorage.getItem('tennis_league_6_data')) || window
         }
 async function resetLeagueCalendarOnly() {
     if (confirm("Sei sicuro di voler rigenerare il calendario? Tutti i punteggi inseriti nelle giornate del campionato verranno azzerati (i tornei e l'Albo d'Oro rimarranno intatti).")) {
-        // 1. Riporta il filtro giornate su "Tutte"
         const filterSelect = document.getElementById('roundFilter');
         if (filterSelect) filterSelect.value = 'all';
 
-        // 2. Svuota esplicitamente i match esistenti per forzare la rigenerazione
         appData.matches = [];
-
-        // 3. Rigenera le 30 partite da zero
         generateLeagueCalendar();
         
-        // 4. Salva in locale e su GitHub
         saveToLocalStorage();
         await saveToGitHub(appData);
         
-        // 5. Ricarica tutta l'interfaccia
-        renderAll();
+        showToast("Calendario rigenerato con successo!");
         
-        showToast("Calendario del campionato rigenerato con successo!");
+        // Ricarica la pagina per applicare lo stato pulito senza interferenze di Streamlit
+        setTimeout(() => { location.reload(); }, 1000);
     }
 }
     </script>
