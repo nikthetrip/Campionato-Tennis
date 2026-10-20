@@ -1064,15 +1064,21 @@
                 location.reload();
             }
         }
-    async function resetLeagueCalendarOnly() {
+async function resetLeagueCalendarOnly() {
     if (confirm("Sei sicuro di voler rigenerare il calendario? Tutti i punteggi inseriti nelle giornate del campionato verranno azzerati (i tornei e l'Albo d'Oro rimarranno intatti).")) {
+        // 1. Riporta il filtro giornate su "Tutte" per evitare disallineamenti visivi
+        const filterSelect = document.getElementById('roundFilter');
+        if (filterSelect) filterSelect.value = 'all';
+
+        // 2. Rigenera le 30 partite
         generateLeagueCalendar();
+        
+        // 3. Salva su localStorage e GitHub
         saveToLocalStorage();
         await saveToGitHub(appData);
         
-        // AGGIUNGI QUESTO PER AGGIORNARE LA VISTA VISIVA
-        renderCalendar(); 
-        renderStandings(); // Aggiorna anche la classifica a zero
+        // 4. Ricarica tutta l'interfaccia dell'app
+        renderAll();
         
         showToast("Calendario del campionato rigenerato con successo!");
     }
