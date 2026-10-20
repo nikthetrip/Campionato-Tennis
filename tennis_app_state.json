@@ -347,9 +347,9 @@
       "sf1": {
         "p1": 5,
         "p2": 1,
-        "score1": null,
-        "score2": null,
-        "winner": null
+        "score1": 6,
+        "score2": 0,
+        "winner": 5
       },
       "sf2": {
         "p1": 3,
@@ -359,7 +359,7 @@
         "winner": null
       },
       "f": {
-        "p1": null,
+        "p1": 5,
         "p2": null,
         "score1": null,
         "score2": null,
