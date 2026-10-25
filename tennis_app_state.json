@@ -61,9 +61,9 @@
       "phase": "Andata",
       "p1": 2,
       "p2": 5,
-      "score1": null,
-      "score2": null,
-      "played": false
+      "score1": 6,
+      "score2": 0,
+      "played": true
     },
     {
       "id": 3,
