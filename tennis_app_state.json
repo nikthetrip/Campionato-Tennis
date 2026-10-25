@@ -349,28 +349,28 @@
   "tournaments": {
     "pisarei": {
       "q1": {
-        "p1": 3,
-        "p2": 6,
-        "score1": null,
-        "score2": null,
-        "winner": null
-      },
-      "q2": {
         "p1": 4,
         "p2": 5,
         "score1": null,
         "score2": null,
         "winner": null
       },
+      "q2": {
+        "p1": 3,
+        "p2": 6,
+        "score1": null,
+        "score2": null,
+        "winner": null
+      },
       "sf1": {
-        "p1": 1,
+        "p1": 2,
         "p2": null,
         "score1": null,
         "score2": null,
         "winner": null
       },
       "sf2": {
-        "p1": 2,
+        "p1": 1,
         "p2": null,
         "score1": null,
         "score2": null,
